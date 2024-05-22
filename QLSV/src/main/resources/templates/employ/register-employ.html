@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Thêm sinh viên</title>
+</head>
+<body>
+    <div class="container" style="margin-top: 10px;">
+        <div class="row" style="border: 1px darkgrey solid; border-radius: 10px; width: 50%; margin: 0 auto; padding: 20px;">
+            <div class="col-sm-12">
+                <h2>Thêm Sinh Viên</h2>
+                <form th:action="@{${ACTION}}" th:object="${Employ}" method="post">
+                    <div class="form-group">
+                        <label>Id</label>
+                        <input type="text" th:field="*{studentId}" class="form-control" placeholder="Nhập ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Họ và Tên</label>
+                        <input type="text" th:field="*{fullName}" class="form-control" placeholder="Nhập Họ và Tên">
+                    </div>
+                    <div class="form-group">
+                        <label>Ngày Sinh</label>
+                        <input type="date" th:field="*{dateOfBirth}" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Giới Tính</label>
+                        <div class="radio">
+                            <label class="checkbox-inline">
+                                <input type="radio" th:field="*{gender}" value="true">Nam
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="radio" th:field="*{gender}" value="false">Nữ
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Quốc Tịch</label>
+                        <input type="text" th:field="*{nationality}" class="form-control" placeholder="Nhập Quốc Tịch">
+                    </div>
+                    <div class="form-group">
+                        <label>Dân Tộc</label>
+                        <input type="text" th:field="*{ethnicity}" class="form-control" placeholder="Nhập Dân Tộc">
+                    </div>
+                    <div class="form-group">
+                        <label>Tôn Giáo</label>
+                        <input type="text" th:field="*{religion}" class="form-control" placeholder="Nhập Tôn Giáo">
+                    </div>
+                    <div class="form-group">
+                        <label>Chứng Minh Nhân Dân</label>
+                        <input type="text" th:field="*{personal_id}" class="form-control" placeholder="Nhập CMND">
+                    </div>
+                    <div class="form-group">
+                        <label>Số Điện Thoại</label>
+                        <input type="text" th:field="*{phone_number}" class="form-control" placeholder="Nhập Số Điện Thoại">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" th:field="*{email}" class="form-control" placeholder="Nhập Email">
+                    </div>
+                    <div class="form-group">
+                        <label>Địa Chỉ</label>
+                        <input type="text" th:field="*{address}" class="form-control" placeholder="Nhập Địa Chỉ">
+                    </div>
+                    <div class="form-group">
+                        <label>Khóa Học</label>
+                        <input type="text" th:field="*{course}" class="form-control" placeholder="Nhập Khóa Học">
+                    </div>
+                    <div class="form-group">
+                        <label>Khoa</label>
+                        <input type="text" th:field="*{class_department}" class="form-control" placeholder="Nhập Khoa">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                    <button type="reset" class="btn btn-primary">Hủy</button>
+                    <a class="btn btn-primary" href="/list">Danh sách sinh viên</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

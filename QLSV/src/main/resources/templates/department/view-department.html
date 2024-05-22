@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Danh sách sinh viên</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Danh sách sinh viên</h2>
+        <p><a class="btn btn-primary" href="/">Thêm sinh viên</a></p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Họ và Tên</th>
+                    <th>Ngày Sinh</th>
+                    <th>Giới Tính</th>
+                    <th>Địa Chỉ</th>
+                    <th style="width: 98px;">Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item : ${students}">
+                    <td th:text="${item.studentId}"></td>
+                    <td th:text="${item.fullName}"></td>
+                    <td th:text="${#dates.format(item.dateOfBirth, 'dd/MM/yyyy')}"></td>
+                    <td th:text="${item.gender ? 'Nam' : 'Nữ'}"></td>
+                    <td th:text="${item.address}"></td>
+                    <td style="text-align: center;">
+                        <a class="btn btn-info btn-sm" th:href="@{'/desStudent/' + ${item.studentId}}">Xem</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

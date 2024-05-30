@@ -8,13 +8,14 @@ import org.springframework.stereotype.Service;
 
 import com.example.qlsv.employ.employmodel.StudentInfo;
 import com.example.qlsv.employ.employrepositories.EmployRepository;
-
+//Phương thức triển khai service
 @Service
 public class EmployServiceImpl implements  EmployService{
     
     @Autowired
-    EmployRepository studentRepository;
+    EmployRepository studentRepository; // kết nối tự động với kho
 
+    // các phưuong thức được triển khai từ service
     @Override
     public StudentInfo save(StudentInfo entity) {
         return studentRepository.save(entity);
@@ -75,4 +76,8 @@ public class EmployServiceImpl implements  EmployService{
         studentRepository.deleteAll();
     }
     
+    @Override
+    public List<StudentInfo> findByStudentIdContainingOrFullNameContaining(String studentId, String fullName) {
+        return studentRepository.findByStudentIdContainingOrFullNameContaining(studentId, fullName);
+    }
 }

@@ -73,4 +73,5 @@ public class DepartmentserviceImpl implements Departmentservice{
     public void deleteAll() {
         departmentRepository.deleteAll();
     }
+    
 }

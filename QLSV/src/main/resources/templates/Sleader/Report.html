@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Danh sách báo cáo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Danh Sách Báo Cáo</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <a href="/reportForm" class="btn btn-success">Thêm Báo Cáo</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <!-- Bảng hiển thị báo cáo -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tiêu đề</th>
+                    <th>Loại</th>
+                    <th>Nội dung</th>
+                    <th>Đối tượng</th>
+                    <th>Ngày tạo</th>
+                    <th>Hành động</th> <!-- Thêm cột cho hành động -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Duyệt qua danh sách báo cáo và hiển thị thông tin -->
+                <tr th:each="report : ${reports}">
+                    <td th:text="${report.reportId}"></td>
+                    <td th:text="${report.title}"></td>
+                    <td th:text="${report.type}"></td>
+                    <td th:text="${report.content}"></td>
+                    <td th:text="${report.forID}"></td>
+                    <td th:text="${#dates.format(report.createdDate, 'dd/MM/yyyy HH:mm:ss')}"></td>
+                    <td> <!-- Thêm nút sửa và xóa với đường dẫn tương ứng -->
+                        <a th:href="@{'/editReport/' + ${report.reportId}}" class="btn btn-primary btn-sm">Sửa</a>
+                        <a th:href="@{'/deleteReport/' + ${report.reportId}}" class="btn btn-danger btn-sm">Xóa</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

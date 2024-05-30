@@ -5,15 +5,16 @@ import java.util.Optional;
 
 import com.example.qlsv.employ.employmodel.StudentInfo;
 
+//trong service sẽ là các hàm có sẵn để triển khai các phương thức select, edit, delete sinh viên
 public interface EmployService {
 
-    StudentInfo save(StudentInfo entity);
+    StudentInfo save(StudentInfo entity); // Lưu sinh viên
 
-    List<StudentInfo> saveAll(List<StudentInfo> entities);
+    List<StudentInfo> saveAll(List<StudentInfo> entities); // lưu tất cả
 
-    Optional<StudentInfo> findById(String id);
+    Optional<StudentInfo> findById(String id); // select sinh viên theo id
 
-    boolean existsById(String id);
+    boolean existsById(String id); 
 
     List<StudentInfo> findAll();
 
@@ -31,4 +32,5 @@ public interface EmployService {
 
     void deleteAll();
 
+    List<StudentInfo> findByStudentIdContainingOrFullNameContaining(String studentId, String fullName); // tìm kiếm sinh viên theo full_name hoặc id
 }

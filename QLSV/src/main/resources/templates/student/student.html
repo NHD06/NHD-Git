@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <link rel="stylesheet" href="/src/main/resources/static/main.css">
+<head>
+    <title>Student Detail</title>
+    <style>
+        .student-detail {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        .student-detail li {
+            list-style-type: none;
+            margin: 5px 0;
+        }
+        .student-detail h2 {
+            margin-bottom: 20px;
+        }
+        button{
+            font-size: 17px;
+            padding: 13px;
+            border-radius: 12px;
+            background-color: #F8F4E1;
+            color: #524C42;
+            cursor: pointer;
+            border: 1px solid rgba(211, 220, 50, .6);
+        }
+        button:hover{
+            background-color: #FFE8C5;
+        }
+    </style>
+</head>
+<body>
+    <div class="student-detail">
+        <h2 th:text="${students.fullName}">Student Name</h2>
+        <div>
+            <ul>
+                <li><strong>Mã SV:</strong> <span th:text="${students.studentId}"></span></li>
+                <li><strong>Họ và tên:</strong> <span th:text="${students.fullName}"></span></li>
+                <li><strong>Ngày sinh:</strong> <span th:text="${#dates.format(students.dateOfBirth, 'dd/MM/yyyy')}"></span></li>
+                <li><strong>Giới tính:</strong> <span th:text="${students.gender ? 'Nam' : 'Nữ'}"></span></li>
+                <li><strong>Quốc tịch:</strong> <span th:text="${students.nationality}"></span></li>
+                <li><strong>Dân tộc:</strong> <span th:text="${students.ethnicity}"></span></li>
+                <li><strong>Tôn giáo:</strong> <span th:text="${students.religion}"></span></li>
+                <li><strong>CCCD:</strong> <span th:text="${students.personal_id}"></span></li>
+                <li><strong>SDT:</strong> <span th:text="${students.phone_number}"></span></li>
+                <li><strong>Email:</strong> <span th:text="${students.email}"></span></li>
+                <li><strong>Địa chỉ:</strong> <span th:text="${students.address}"></span></li>
+                <li><strong>Khóa học:</strong> <span th:text="${students.course}"></span></li>
+                <li><strong>Chuyên ngành:</strong> <span th:text="${students.class_department}"></span></li> 
+            </ul>
+        </div>
+        <form action="${backDepartment}">
+            <button type="submit">Quay lại</button>
+        </form>
+        
+    </div>
+</body>
+</html>

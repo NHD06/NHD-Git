@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Report Form</h2>
+        <form th:action="@{${ACTION}}" th:object="${Report}" method="post">
+            <div class="form-group">
+                <label for="idStudent">ID Student:</label>
+                <input type="text" th:field="*{forID}" class="form-control" id="idStudent" name="idStudent" required>
+            </div>
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" th:field="*{title}" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="type">Type:</label>
+                <input type="text" th:field="*{type}" class="form-control" id="type" name="type" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <textarea class="form-control" th:field="*{content}" id="content" name="content" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <input type="date" th:field="*{createdDate}" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

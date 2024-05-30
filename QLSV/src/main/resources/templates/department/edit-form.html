@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Chỉnh sửa báo cáo</title>
+</head>
+<body>
+    <style>
+        .form-container {
+    margin-top: 50px;
+    border: 1px darkgrey solid;
+    border-radius: 10px;
+    padding: 20px;
+    width: 50%;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    }   
+    </style>
+    <h2>Chỉnh sửa báo cáo</h2>
+    <form th:action="@{/department/edit}" th:object="${report}" method="post">
+        <label for="departmentId">Department ID:</label>
+        <input type="text" id="departmentId" th:field="*{departmentId}" readonly><br><br>
+        <label for="departmentName">Department Name:</label>
+        <input type="text" id="departmentName" th:field="*{departmentName}"><br><br>
+        <label for="recordType">Type:</label>
+        <input type="text" id="recordType" th:field="*{recordType}"><br><br>
+        <label for="reason">Reason:</label>
+        <input type="text" id="reason" th:field="*{reason}"><br><br>
+        <label for="date">Date:</label>
+        <input type="text" id="date" th:field="*{date}"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

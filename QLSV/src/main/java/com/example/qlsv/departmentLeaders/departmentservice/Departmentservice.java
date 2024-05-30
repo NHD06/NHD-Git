@@ -30,5 +30,4 @@ public interface Departmentservice {
     void deleteAll(List<Department> entities);
 
     void deleteAll();
-
 }

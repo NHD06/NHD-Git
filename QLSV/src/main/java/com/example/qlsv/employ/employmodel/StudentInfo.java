@@ -18,8 +18,8 @@ import com.example.qlsv.departmentLeaders.departmentmodelss.Department;
 @Entity
 @Table(name = "students_info")
 public class StudentInfo implements Serializable {
-    @Id
-    @Column(name = "student_id", length = 50)
+    @Id //xác định đây là khóa chính của bảng
+    @Column(name = "student_id", length = 50) // tên và độ dài của cột
     private String studentId;
 
 
@@ -60,13 +60,14 @@ public class StudentInfo implements Serializable {
     @Column(name = "class_department", length = 50)
     private String class_department;
 
-    @ManyToOne
-    @JoinColumn(name = "department_id")
+    @ManyToOne // set quản hệ với bảng department
+    @JoinColumn(name = "department_id") //cột khóa ngoại
     private Department department;
 
     public StudentInfo() {
     }
 
+    //phương thức khởi tạo đủ tham số
     public StudentInfo(String studentId, String address, String fullName, Date dateOfBirth,
             boolean gender, String nationality, String ethnicity, String religion, String personal_id,
             String phone_number, String email, String course, String class_department) {
@@ -85,6 +86,7 @@ public class StudentInfo implements Serializable {
         this.class_department = class_department;
     }
 
+    //các phương thức set, get
     public Department getDepartment() {
         return department;
     }

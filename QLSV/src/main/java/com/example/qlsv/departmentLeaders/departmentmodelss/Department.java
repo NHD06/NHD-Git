@@ -11,20 +11,20 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-@Entity
+@Entity // Chú thích này đển Spring biết đây là Entity
 @Table(name = "department_leaders")
 public class Department {
-    @Id
+    @Id 
     @Column(name = "department_id", length = 50)
     private String departmentId;
 
-    @Column(name = "department_name", length = 50)
+    @Column(name = "department_name", length = 50, columnDefinition = "NVARCHAR(50)")
     private String departmentName;
 
-    @Column(name = "recordType", length = 50)
+    @Column(name = "recordType", length = 50, columnDefinition = "NVARCHAR(50)")
     private String recordType;
 
-    @Column(name = "reason", length = 50)
+    @Column(name = "reason", length = 50, columnDefinition = "NVARCHAR(50)")
     private String reason;
 
     @Column(name = "date")
